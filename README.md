@@ -29,4 +29,4 @@ Thanks to LeetCode for providing a platform to practice coding interview questio
 
 If you have any questions or suggestions, feel free to reach out to me:
 
-[Mathesh](message me in: https://www.linkedin.com/in/mathesh-m-9baa91269/)
+[![Mathesh M](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](https://www.linkedin.com/in/mathesh-m-9baa91269/)
