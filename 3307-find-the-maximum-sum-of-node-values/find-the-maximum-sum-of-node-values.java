@@ -14,7 +14,7 @@ class Solution {
                 cnt++;
                 sum = sum - nums[i] + val;
             }
-            min = Math.min(min, Math.abs((nums[i] ^ k) - nums[i]));
+            min = Math.min(min, Math.abs(val - nums[i]));
         }
         return (cnt & 1) == 1 ? sum - min : sum;
     }
