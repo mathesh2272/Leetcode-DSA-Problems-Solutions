@@ -1,4 +1,21 @@
 class Solution {
+    public boolean check(int val1, int val2, int[] arr, int n){
+        int left = 0;
+        int right = n - 1;
+        while(left <= right){
+            int mid = left + (right - left) / 2;
+            if(arr[mid] >= val2 && arr[mid] <= val1){
+                return true;
+            }
+            else if(arr[mid] > val1){
+                right = mid - 1;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
     public int[] getZAlgo(char[] ch){
         int n = ch.length;
         int left = 0;
@@ -42,27 +59,27 @@ class Solution {
         int[] zAlgo2 = getZAlgo(sb.toString().toCharArray());
         int n = zAlgo1.length;
         int a_len = a.length();
-        List<Integer> list1 = new ArrayList<>();
+        int[] index_first = new int[s.length()];
+        int n1 = 0;
         for(int i = 0 ; i < n ; i++){
             if(zAlgo1[i] == a_len){
-                list1.add(i - a_len - 1);
+                index_first[n1++] = i - a_len - 1;
             }
         }
         int b_len = b.length();
         n = zAlgo2.length;
+        int[] index_second = new int[s.length()];
+        int n2 = 0;
         List<Integer> list2 = new ArrayList<>();
         for(int i = 0 ; i < n ; i++){
             if(zAlgo2[i] == b_len){
-                list2.add(i - b_len - 1);
+                index_second[n2++] = i - b_len - 1;
             }
         }
         List<Integer> ans = new ArrayList<>();
-        for(int ele1 : list1){
-            for(int ele2 : list2){
-                if(Math.abs(ele1 - ele2) <= k){
-                    ans.add(ele1);
-                    break;
-                }
+        for(int i = 0 ; i < n1 ; i++){
+            if(check(index_first[i] + k, index_first[i] - k, index_second, n2)){
+                ans.add(index_first[i]);
             }
         }
         return ans;
