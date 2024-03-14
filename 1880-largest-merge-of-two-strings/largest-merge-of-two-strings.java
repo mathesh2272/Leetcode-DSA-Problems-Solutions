@@ -23,11 +23,11 @@ class Solution {
                 }
             }
         }
-        if(i < n){
-            sb.append(word1.substring(i));
+        while(i < n){
+            sb.append(ch1[i++]);
         }
-        if(j < m){
-            sb.append(word2.substring(j));
+        while(j < m){
+            sb.append(ch2[j++]);
         }
         return new String(sb);
     }
