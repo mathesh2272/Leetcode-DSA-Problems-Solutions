@@ -3,7 +3,7 @@ class Solution {
         Map<String, Integer> map = new HashMap<>();
         int n = messages.length;
         String ans = "";
-        int max = Integer.MIN_VALUE;
+        int max = 0;
         for(int i = 0 ; i < n ; i++){
             int len = messages[i].split(" ").length;
             map.put(senders[i], map.getOrDefault(senders[i], 0) + len);
