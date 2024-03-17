@@ -5,24 +5,16 @@ class Solution {
         int[] hash = new int[26];
         for(int i = 0 ; i < n ; i++){
             hash[ch[i] - 'a']++;
-        }      
-        List<Integer> list = new ArrayList<>();
-        for(int i = 0 ; i < 26 ; i++){
-            if(hash[i] != 0){
-                list.add(hash[i]);
-            }
         }
-        int[] nums = list.stream().mapToInt(a -> a).toArray();
-        int size = nums.length;
         int ans = Integer.MAX_VALUE;
-        for(int i = 0 ; i < size ; i++){
+        for(int i = 0 ; i < 26 ; i++){
             int op = 0;
-            for(int j = 0 ; j < size ; j++){
-                if(nums[i] > nums[j]){
-                    op += nums[j];
+            for(int j = 0 ; j < 26 ; j++){
+                if(hash[i] > hash[j]){
+                    op += hash[j];
                 }
                 else{
-                    op += Math.max(0, (nums[j] - nums[i] - k));
+                    op += Math.max(0, (hash[j] - hash[i] - k));
                 }
             }
             ans = Math.min(ans, op);
