@@ -16,19 +16,17 @@ class Solution {
         while(k-- > 0){
             stack.pop();
         }
+        boolean zero = false;
         StringBuilder sb = new StringBuilder();
-        while(!stack.isEmpty()){
-            sb.append(ch[stack.pop()]);
-        }
-        sb.reverse();
-        int ind = 0;
-        n = sb.length();
-        while(ind < n){
-            if(sb.charAt(ind) != '0'){
-                break;
+        for(int i : stack){
+            if(ch[i] == '0' && !zero){
+                continue;
             }
-            ind++;
+            else{
+                zero = true;
+            }
+            sb.append(ch[i]);
         }
-        return ind == n ? "0" : sb.toString().substring(ind, n);
+        return sb.isEmpty() ? "0" : sb.toString();
     }
 }
