@@ -1,5 +1,4 @@
 class Solution {
-    Map<String, Integer> map;
     public int track(String[] words, int ind, int n, int[] freq, int[] score){
         if(ind == n){
             return 0;
