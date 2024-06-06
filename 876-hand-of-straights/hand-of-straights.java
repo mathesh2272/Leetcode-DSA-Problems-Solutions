@@ -4,7 +4,8 @@ class Solution {
         if(n % groupSize != 0){
             return false;
         }
-        Map<Integer, Integer> map = new TreeMap<>();
+        Arrays.sort(hand);
+        Map<Integer, Integer> map = new LinkedHashMap<>();
         for(int i = 0 ; i < n ; i++){
             map.put(hand[i], map.getOrDefault(hand[i], 0) + 1);
         }
