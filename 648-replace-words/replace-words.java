@@ -15,16 +15,9 @@ class Solution {
                     }
                 }
             }
-            if(min != Integer.MAX_VALUE){
-                sb.append(str);
-            }
-            else{
-                sb.append(arr[i]);
-            }
-            if(i != n-1){
-                sb.append(" ");
-            }
+            sb.append(min != Integer.MAX_VALUE ? str : arr[i]);
+            sb.append(" ");
         }
-        return new String(sb);
+        return new String(sb).trim();
     }
 }
