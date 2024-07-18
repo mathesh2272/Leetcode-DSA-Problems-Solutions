@@ -14,17 +14,15 @@
  * }
  */
 class Solution {
-    public TreeNode getAnc(TreeNode root, List<TreeNode> list){
+    public TreeNode getAnc(TreeNode root, Set<TreeNode> set){
         if(root == null){
             return root;
         }
-        for(TreeNode tree : list){
-            if(root.val == tree.val){
-                return root;
-            }
+        if(set.contains(root)){
+            return root;
         }
-        TreeNode left = getAnc(root.left, list);
-        TreeNode right = getAnc(root.right, list);
+        TreeNode left = getAnc(root.left, set);
+        TreeNode right = getAnc(root.right, set);
         if(left != null && right != null){
             return root;
         }
@@ -33,10 +31,10 @@ class Solution {
     public TreeNode lcaDeepestLeaves(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        List<TreeNode> list = new ArrayList<>();
+        Set<TreeNode> set = new HashSet<>();
         while(!queue.isEmpty()){
             int size = queue.size();
-            list = new ArrayList<>();
+            set = new HashSet<>();
             while(size-- > 0){
                 TreeNode poll = queue.poll();
                 if(poll.left != null){
@@ -45,9 +43,9 @@ class Solution {
                 if(poll.right != null){
                     queue.offer(poll.right);
                 }
-                list.add(poll);
+                set.add(poll);
             }
         }
-        return getAnc(root, list);
+        return getAnc(root, set);
     }
 }
