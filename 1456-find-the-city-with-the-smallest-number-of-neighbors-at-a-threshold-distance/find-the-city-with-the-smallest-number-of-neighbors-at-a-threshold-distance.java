@@ -20,6 +20,7 @@ class Solution {
             pq.add(new int[]{i, 0});
             visited[i] = true;
             dist[i] = 0;
+            Set<Integer> set = new HashSet<>();
             while(!pq.isEmpty()){
                 int[] poll = pq.poll();
                 int y = poll[0];
@@ -29,6 +30,7 @@ class Solution {
                 }
                 dist[y] = w;
                 visited[y] = true;
+                set.add(y);
                 for(int[] arr : list[y]){
                     int ny = arr[0];
                     int nw = arr[1];
@@ -38,12 +40,7 @@ class Solution {
                     }
                 }
             }
-            int cnt = 0;
-            for(int j = 0 ; j < n ; j++){
-                if(dist[j] != 0 && dist[j] <= distanceThreshold){
-                    cnt++;
-                }
-            }
+            int cnt = set.size();
             if(cnt <= min){
                 min = cnt;
                 ans = i;
