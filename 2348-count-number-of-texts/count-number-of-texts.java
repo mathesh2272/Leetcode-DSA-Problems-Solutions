@@ -13,10 +13,10 @@ class Solution {
         int j = i + 1;
         long val = 0;
         while(j < n && j < i + limit && ch[i] == ch[j]){
-            val = val + helper(ch, j, n) % mod;
+            val = val + helper(ch, j, n);
             j++;
         }
-        val = val + helper(ch, j, n) % mod;
+        val = val + helper(ch, j, n);
         return dp[i] = val % mod;
     }
     public int countTexts(String pressedKeys) {
