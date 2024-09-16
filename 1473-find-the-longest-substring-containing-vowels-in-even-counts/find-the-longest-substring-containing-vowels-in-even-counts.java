@@ -8,19 +8,19 @@ class Solution {
         map.put(0, -1);
         for(int i = 0 ; i < n ; i++){
             if(ch[i] == 'a'){
-                mask = mask ^ (1 << 1);
+                mask = mask ^ 1;
             }
             if(ch[i] == 'e'){
-                mask = mask ^ (1 << 2);
+                mask = mask ^ 2;
             }
             if(ch[i] == 'i'){
-                mask = mask ^ (1 << 4);
+                mask = mask ^ 4;
             }
             if(ch[i] == 'o'){
-                mask = mask ^ (1 << 8);
+                mask = mask ^ 8;
             }
             if(ch[i] == 'u'){
-                mask = mask ^ (1 << 16);
+                mask = mask ^ 16;
             }
             if(map.containsKey(mask)){
                 ans = Math.max(ans, i - map.get(mask));
