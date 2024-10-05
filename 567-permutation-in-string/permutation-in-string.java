@@ -10,10 +10,10 @@ class Solution {
         }
         int left = 0;
         int right = 0;
-        while(right < m){
+        while(right <= m - n){
             int key = ch2[right] - 'a';
             if(hash1[key] != 0){
-                if(right + n <= m){
+                // if(right + n <= m){
                     String s = s2.substring(right, right + n);
                     // System.out.println(s);
                     int[] hash2 = new int[26];
@@ -26,7 +26,7 @@ class Solution {
                     if(Arrays.equals(hash1, hash2)){
                         return true;
                     }
-                }
+                // }
             }
             right++;
         }
