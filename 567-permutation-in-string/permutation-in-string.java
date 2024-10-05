@@ -18,6 +18,9 @@ class Solution {
                     // System.out.println(s);
                     int[] hash2 = new int[26];
                     for(char c : s.toCharArray()){
+                        if(hash1[c - 'a'] == 0){
+                            break;
+                        }
                         hash2[c - 'a']++;
                     }
                     if(Arrays.equals(hash1, hash2)){
