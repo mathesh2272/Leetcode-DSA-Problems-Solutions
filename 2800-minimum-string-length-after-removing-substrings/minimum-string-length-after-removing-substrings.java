@@ -1,12 +1,8 @@
 class Solution {
     public int minLength(String s) {
         while(s.contains("AB") || s.contains("CD")){
-            if(s.contains("AB")){
-                s = s.replaceAll("AB", "");
-            }
-            if(s.contains("CD")){
-                s = s.replaceAll("CD", "");
-            }
+            s = s.replaceAll("AB", "");
+            s = s.replaceAll("CD", "");
         }
         return s.length();
     }
