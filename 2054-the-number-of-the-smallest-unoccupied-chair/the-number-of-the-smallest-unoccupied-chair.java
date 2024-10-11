@@ -9,7 +9,7 @@ class Solution {
             time[i][2] = i;
             chair.add(i);
         }
-        Arrays.sort(time, (a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        Arrays.sort(time, (a, b) -> a[0] - b[0]);
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         for(int[] arr : time){
             int start = arr[0];
@@ -18,11 +18,10 @@ class Solution {
             while(!pq.isEmpty() && pq.peek()[0] <= start){
                chair.add(pq.poll()[1]);
             }
-            int val = chair.poll();
             if(ch == targetFriend){
-                return val;
+                return chair.peek();
             }
-            pq.add(new int[]{end, val});
+            pq.add(new int[]{end, chair.poll()});
         }
         return 0;
     }
