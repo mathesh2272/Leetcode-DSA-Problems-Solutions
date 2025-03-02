@@ -21,13 +21,11 @@ class Solution {
             }
         }
         while(i < n){
-            list.add(new int[]{nums1[i][0], nums1[i][1]});
-            i++;
+            list.add(nums1[i++]);
         }
         while(j < m){
-            list.add(new int[]{nums2[j][0], nums2[j][1]});
-            j++;
+            list.add(nums2[j++]);
         }
-        return list.stream().toArray(size -> new int[size][]);
+        return list.toArray(size -> new int[size][]);
     }
 }
